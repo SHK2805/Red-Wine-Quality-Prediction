@@ -3,7 +3,7 @@ from pathlib import Path
 import logging
 
 # Set up logging configuration
-logging.basicConfig(level=logging.INFO, format='[%(asctime)s]: %(message)s:')
+logging.basicConfig(level=logging.INFO, format='[%(asctime)s]: %(message)s')
 
 def create_project_structure(project_name: str) -> bool:
     try:
@@ -15,8 +15,11 @@ def create_project_structure(project_name: str) -> bool:
             "README.md",
             "template.py",
             ".github/workflows/.gitkeep",
+            f"logs/",
             f"src/{project_name}/__init__.py",
             f"src/{project_name}/components/__init__.py",
+            f"src/{project_name}/logger/__init__.py",
+            f"src/{project_name}/logger/logger_config.py",
             f"src/{project_name}/utils/__init__.py",
             f"src/{project_name}/utils/common.py",
             f"src/{project_name}/config/__init__.py",
@@ -40,15 +43,24 @@ def create_project_structure(project_name: str) -> bool:
             filepath = Path(filepath)
             filedir = filepath.parent
 
+            # Create directories
             if filedir != Path():
                 os.makedirs(filedir, exist_ok=True)
                 logging.info(f"Creating directory {filedir} for the file: {filepath.name}")
 
-            if not filepath.exists() or filepath.stat().st_size == 0:
-                filepath.touch()
-                logging.info(f"Creating empty file: {filepath}")
+            # Create files if they do not exist or are empty
+            if filepath.suffix:  # Check if it's a file (has a suffix)
+                if not filepath.exists() or filepath.stat().st_size == 0:
+                    filepath.touch()
+                    logging.info(f"Creating empty file: {filepath}")
+                else:
+                    logging.info(f"{filepath.name} already exists")
             else:
-                logging.info(f"{filepath.name} already exists")
+                if not filepath.exists():  # Create directory if it doesn't exist
+                    os.makedirs(filepath, exist_ok=True)
+                    logging.info(f"Creating directory: {filepath}")
+                else:
+                    logging.info(f"Directory {filepath} already exists")
     except Exception as e:
         logging.error(f"Error in creating project structure: {e}")
         return False
@@ -56,6 +68,9 @@ def create_project_structure(project_name: str) -> bool:
 
 if __name__ == "__main__":
     # Define the project name
-    ml_project_name = "e2e-ml-project-1"
+    # This will be the name of the project directory
+    # The name cannot have spaces or special characters except for underscores
+    ml_project_name = "e2e_ml_project_1"
     # Create the project structure
     create_project_structure(ml_project_name)
+    logging.info(f"Project structure created for {ml_project_name}")
