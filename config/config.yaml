@@ -1,0 +1,12 @@
+
+artifacts_root: 'artifacts'
+
+data_ingestion:
+  data_root_dir: 'artifacts/data_ingestion'
+  data_source: 'https://github.com/krishnaik06/datasets/raw/refs/heads/main/winequality-data.zip'
+  data_local_data_file: 'artifacts/data_ingestion/data.zip'
+  data_unzip_dir: 'artifacts/data_ingestion/'
+  data_source_type: 'csv'
+  data_source_separator: ','
+  data_source_train_test_split: 0.2
+  data_source_random_state: 42

@@ -23,3 +23,17 @@
 6. Update the components in src components
 7. Update the pipeline in src pipeline
 8. Update the main.py
+
+### Workflow Details
+* We update the below files in that order to achieve the ML pipeline:
+1. config.yaml
+   1. Needed for Data Ingestion
+2. schema.yaml
+   1. Not needed for Data Ingestion 
+3. params.yaml
+   1. Not needed for Data Ingestion 
+4. Update the entity
+5. Update the configuration manager in src config
+6. Update the components in src components
+7. Update the pipeline in src pipeline
+8. Update the main.py
