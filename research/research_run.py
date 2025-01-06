@@ -1,4 +1,4 @@
-from research.ml_research import ConfigurationManager, DataIngestion
+from research.research_data_ingestion import ConfigurationManager, DataIngestion
 from src.e2e_ml_project_1.logger.logger_config import logger
 
 

@@ -27,7 +27,9 @@
 ### Workflow Details
 * We update the below files in that order to achieve the ML pipeline:
 1. config.yaml
-   1. Needed for Data Ingestion
+   1. Needed for Data Ingestion, Data Validation
+   2. Data Ingestion: Fill this first config_data_ingestion.py
+   3. Data Validation: Fill this first config_data_validation.py
 2. schema.yaml
    1. Not needed for Data Ingestion 
 3. params.yaml
