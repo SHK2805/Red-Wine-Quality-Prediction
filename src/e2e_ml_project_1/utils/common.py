@@ -34,7 +34,7 @@ def read_yaml(file_path: Path) -> ConfigBox:
         logger.error(f"Error reading the YAML file: {e}")
         raise e
 
-@ensure_annotations
+# @ensure_annotations
 def create_directories(dirs: list, verbose=True) -> None:
     """
     Create directories if they do not exist
@@ -43,6 +43,7 @@ def create_directories(dirs: list, verbose=True) -> None:
     :param dirs: List of directories to create
     :return: None
     """
+    logger.info(f"Creating directories: {dirs}")
     for my_dir in dirs:
         if not os.path.exists(my_dir):
             os.makedirs(my_dir, exist_ok=True)
@@ -51,6 +52,7 @@ def create_directories(dirs: list, verbose=True) -> None:
         else:
             if verbose:
                 logger.info(f"Directory: {my_dir} already exists")
+    logger.info(f"Directories have been created")
 
 @ensure_annotations
 def save_json(file_path: Path, data: dict) -> None:
