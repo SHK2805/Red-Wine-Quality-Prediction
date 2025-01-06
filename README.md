@@ -34,8 +34,12 @@
    1. Not needed for Data Ingestion 
 4. Update the entity
    1. Needed for Data Ingestion
+   2. Data Ingestion: Fill this first config_entity.py
 5. Update the configuration manager in src config
    1. Needed for Data Ingestion
+   2. Data Ingestion: Fill this first configuration.py
 6. Update the components in src components
+   1. Needed for Data Ingestion
+   2. Data Ingestion: Fill this first data_ingestion.py
 7. Update the pipeline in src pipeline
 8. Update the main.py
