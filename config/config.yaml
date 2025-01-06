@@ -10,3 +10,8 @@ data_ingestion:
   data_source_separator: ','
   data_source_train_test_split: 0.2
   data_source_random_state: 42
+
+data_validation:
+  data_root_dir: 'artifacts/data_validation'
+  data_unzip_dir: 'artifacts/data_ingestion/winequality-red.csv'
+  STATUS_FILE: 'artifacts/data_validation/status.txt'

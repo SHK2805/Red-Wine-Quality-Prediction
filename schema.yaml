@@ -1,1 +1,44 @@
-key: value
+# to get this information, you can use the following code:
+# import pandas as pd
+# df = pd.read_csv('winequality-red.csv')
+# df.info()
+COLUMNS:
+    - name: 'fixed acidity'
+      type: float64
+
+    - name: 'volatile acidity'
+      type: float64
+
+    - name: 'citric acid'
+      type: float64
+
+    - name: 'residual sugar'
+      type: float64
+
+    - name: 'chlorides'
+      type: float64
+
+    - name: 'free sulfur dioxide'
+      type: float64
+
+    - name: 'total sulfur dioxide'
+      type: float64
+
+    - name: 'density'
+      type: float64
+
+    - name: 'pH'
+      type: float64
+
+    - name: 'sulphates'
+      type: float64
+
+    - name: 'alcohol'
+      type: float64
+
+    - name: 'quality'
+      type: int64
+
+TARGET_COLUMN:
+    - name: 'quality'
+      type: int64

@@ -28,20 +28,31 @@
 * We update the below files in that order to achieve the ML pipeline:
 1. config.yaml
    1. Needed for Data Ingestion, Data Validation
-   2. Data Ingestion: Fill this first config_data_ingestion.py
-   3. Data Validation: Fill this first config_data_validation.py
+   2. Data Ingestion: Fill this first data_ingestion
+   3. Data Validation: Fill this first data_validation
 2. schema.yaml
-   1. Not needed for Data Ingestion 
+   1. Not needed for Data Ingestion
+   2. Needed for Data Validation
+      1. Data Validation: Fill this second schema.yaml
+         1. Add the key value pairs for the data schema the name of the column and the type of the column
 3. params.yaml
    1. Not needed for Data Ingestion 
 4. Update the entity
-   1. Needed for Data Ingestion
-   2. Data Ingestion: Fill this first config_entity.py
+   1. Needed for Data Ingestion, Data Validation
+   2. Data Ingestion: Fill this second config_entity.py
+      1. Add the key value pairs for the data schema the name of the column and the type of the column should match the ones in config.yaml
+   3. Data Validation: Fill this third config_entity.py
+      1. Add the key value pairs for the data schema the name of the column and the type of the column should match the ones in config.yaml
 5. Update the configuration manager in src config
    1. Needed for Data Ingestion
-   2. Data Ingestion: Fill this first configuration.py
+   2. Data Ingestion: Fill this third configuration.py get_data_ingestion_config
+   3. Data Validation: Fill this fourth configuration.py
 6. Update the components in src components
    1. Needed for Data Ingestion
-   2. Data Ingestion: Fill this first data_ingestion.py
+   2. Data Ingestion: Fill this forth data_ingestion.py
 7. Update the pipeline in src pipeline
+   1. Needed for Data Ingestion, Data Validation
+   2. Data Ingestion: Fill this fifth data_ingestion.py
 8. Update the main.py
+    1. Needed for Data Ingestion, Data Validation
+    2. Data Ingestion: Fill this sixth main.py

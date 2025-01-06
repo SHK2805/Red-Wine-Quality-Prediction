@@ -13,3 +13,11 @@ class DataIngestionConfig:
     data_source_separator: str
     data_source_train_test_split: float
     data_source_random_state: int
+
+@dataclass
+class DataValidationConfig:
+    # these are the inputs to the data validation pipeline
+    data_root_dir: Path
+    data_unzip_dir: Path
+    STATUS_FILE: str
+    all_schema: dict

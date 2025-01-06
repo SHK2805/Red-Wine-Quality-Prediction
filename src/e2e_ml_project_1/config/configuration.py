@@ -1,8 +1,10 @@
 import os
 from src.e2e_ml_project_1.constants.constants import *
-from src.e2e_ml_project_1.entity.config_entity import DataIngestionConfig
+from src.e2e_ml_project_1.entity.config_entity import DataIngestionConfig, DataValidationConfig
 from src.e2e_ml_project_1.logger.logger_config import logger
 from src.e2e_ml_project_1.utils.common import read_yaml, create_directories
+from src.e2e_ml_project_1.utils.schema_manager import SchemaFileManager
+
 
 class ConfigurationManager:
     def __init__(self,
@@ -45,3 +47,28 @@ class ConfigurationManager:
         )
         logger.info(f"{tag}Data ingestion configuration created")
         return data_ingestion_config
+
+    def get_data_validation_config(self) -> DataValidationConfig:
+        tag: str = f"{self.class_name}::get_data_validation_config::"
+        config = self.config.data_validation
+        logger.info(f"{tag}Data validation configuration obtained from the config file")
+
+        # read schema
+        schema = SchemaFileManager(schema=self.schema).get_schema_as_key_value_pairs()
+        logger.info(f"{tag}Schema obtained from the schema file")
+
+        # create the data directory
+        data_dir = config.data_root_dir
+        logger.info(f"{tag}Data directory: {data_dir} obtained from the config file")
+
+        create_directories([data_dir])
+        logger.info(f"{tag}Data directory created: {data_dir}")
+
+        data_validation_config: DataValidationConfig = DataValidationConfig(
+            data_root_dir=Path(config.data_root_dir),
+            data_unzip_dir=Path(config.data_unzip_dir),
+            STATUS_FILE=config.STATUS_FILE,
+            all_schema=schema
+        )
+        logger.info(f"{tag}Data validation configuration created")
+        return data_validation_config

@@ -108,3 +108,14 @@ def load_bin(file_path: Path) -> Any:
     logger.info(f"Data has been loaded from the binary file: {file_path}")
     return data
 
+# function to check if the file exists
+@ensure_annotations
+def check_file_exists(file_path: Path) -> bool:
+    """
+    Check if the file exists
+
+    :param file_path: Path to the file
+    :return: True if the file exists, False otherwise
+    """
+    return file_path.exists()
+
