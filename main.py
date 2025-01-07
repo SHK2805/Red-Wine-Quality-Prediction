@@ -15,11 +15,11 @@ class RunPipeline:
     def run_data_ingestion_pipeline(self) -> None:
         tag: str = f"{self.class_name}::run_data_ingestion_pipeline::"
         try:
-            logger.info(f">>>>>>>>>>>>>>>>>>>> {self.data_ingestion_pipeline.stage_name} <<<<<<<<<<<<<<<<<<<<")
+            logger.info(f"[STARTED]>>>>>>>>>>>>>>>>>>>> {self.data_ingestion_pipeline.stage_name} <<<<<<<<<<<<<<<<<<<<")
             logger.info(f"{tag}::Running the data ingestion pipeline")
             self.data_ingestion_pipeline.data_ingestion()
             logger.info(f"{tag}::Data ingestion pipeline completed")
-            logger.info(f">>>>>>>>>>>>>>>>>>>> {self.data_ingestion_pipeline.stage_name} <<<<<<<<<<<<<<<<<<<<")
+            logger.info(f"[COMPLETE]>>>>>>>>>>>>>>>>>>>> {self.data_ingestion_pipeline.stage_name} <<<<<<<<<<<<<<<<<<<<")
         except Exception as e:
             logger.error(f"{tag}::Error running the data ingestion pipeline: {e}")
             raise e
@@ -27,11 +27,11 @@ class RunPipeline:
     def run_data_validation_pipeline(self) -> None:
         tag: str = f"{self.class_name}::run_data_validation_pipeline::"
         try:
-            logger.info(f">>>>>>>>>>>>>>>>>>>> {self.data_validation_pipeline.stage_name} <<<<<<<<<<<<<<<<<<<<")
+            logger.info(f"[STARTED]>>>>>>>>>>>>>>>>>>>> {self.data_validation_pipeline.stage_name} <<<<<<<<<<<<<<<<<<<<")
             logger.info(f"{tag}::Running the data validation pipeline")
             self.data_validation_pipeline.data_validation()
             logger.info(f"{tag}::Data validation pipeline completed")
-            logger.info(f">>>>>>>>>>>>>>>>>>>> {self.data_validation_pipeline.stage_name} <<<<<<<<<<<<<<<<<<<<")
+            logger.info(f"[COMPLETE]>>>>>>>>>>>>>>>>>>>> {self.data_validation_pipeline.stage_name} <<<<<<<<<<<<<<<<<<<<")
         except Exception as e:
             logger.error(f"{tag}::Error running the data validation pipeline: {e}")
             raise e
@@ -39,11 +39,11 @@ class RunPipeline:
     def run_data_transformation_pipeline(self) -> None:
         tag: str = f"{self.class_name}::run_data_transformation_pipeline::"
         try:
-            logger.info(f">>>>>>>>>>>>>>>>>>>> {self.data_transformation_pipeline.stage_name} <<<<<<<<<<<<<<<<<<<<")
+            logger.info(f"[STARTED]>>>>>>>>>>>>>>>>>>>> {self.data_transformation_pipeline.stage_name} <<<<<<<<<<<<<<<<<<<<")
             logger.info(f"{tag}::Running the data transformation pipeline")
             self.data_transformation_pipeline.data_transformation()
             logger.info(f"{tag}::Data transformation pipeline completed")
-            logger.info(f">>>>>>>>>>>>>>>>>>>> {self.data_transformation_pipeline.stage_name} <<<<<<<<<<<<<<<<<<<<")
+            logger.info(f"[COMPLETE]>>>>>>>>>>>>>>>>>>>> {self.data_transformation_pipeline.stage_name} <<<<<<<<<<<<<<<<<<<<")
         except Exception as e:
             logger.error(f"{tag}::Error running the data transformation pipeline: {e}")
             raise e
