@@ -109,7 +109,6 @@ def load_bin(file_path: Path) -> Any:
     return data
 
 # function to check if the file exists
-@ensure_annotations
 def check_file_exists(file_path: Path) -> bool:
     """
     Check if the file exists
@@ -118,4 +117,18 @@ def check_file_exists(file_path: Path) -> bool:
     :return: True if the file exists, False otherwise
     """
     return file_path.exists()
+
+# function to write the data to the file
+def write_data_to_file(file_path: Path, data: str) -> None:
+    """
+    Write the data to the file
+
+    :param file_path: Path to the file
+    :param data: Data to write
+    :return: None
+    """
+    with open(file_path, "w") as file:
+        file.write(data)
+
+    logger.info(f"Data has been written to the file: {file_path}")
 

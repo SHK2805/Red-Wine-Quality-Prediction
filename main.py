@@ -1,3 +1,4 @@
+from clean import clean
 from src.e2e_ml_project_1.logger.logger_config import logger
 from src.e2e_ml_project_1.pipeline.data_ingestion import DataIngestionTrainingPipeline
 from src.e2e_ml_project_1.pipeline.data_validation import DataValidationTrainingPipeline
@@ -22,7 +23,6 @@ class RunPipeline:
     def run_data_validation_pipeline(self) -> None:
         tag: str = f"{self.class_name}::run_data_validation_pipeline::"
         try:
-            self.run_data_ingestion_pipeline()
             logger.info(f"{tag}::Running the data validation pipeline")
             self.data_validation_pipeline.data_validation()
             logger.info(f"{tag}::Data validation pipeline completed")
@@ -30,7 +30,12 @@ class RunPipeline:
             logger.error(f"{tag}::Error running the data validation pipeline: {e}")
             raise e
 
+    def run(self):
+        self.run_data_ingestion_pipeline()
+        self.run_data_validation_pipeline()
+
 if __name__ == "__main__":
     # Run the pipelines
+    clean()
     run_pipeline = RunPipeline()
-    run_pipeline.run_data_validation_pipeline()
+    run_pipeline.run()
