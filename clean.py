@@ -14,3 +14,6 @@ def clean():
     if os.path.exists(logs):
         shutil.rmtree(logs)
         logger.info(f"Deleted {logs} folder")
+
+if __name__ == "__main__":
+    clean()
