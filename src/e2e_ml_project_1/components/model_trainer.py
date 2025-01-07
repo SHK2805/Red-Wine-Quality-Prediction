@@ -42,7 +42,6 @@ class ModelTrainer:
             joblib.dump(model, model_path)
             logger.info(f"{tag}Model saved to: {model_path}")
 
-
         except Exception as e:
             logger.error(f"{tag}Error training the model: {e}")
             raise e

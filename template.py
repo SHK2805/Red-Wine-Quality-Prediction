@@ -9,47 +9,62 @@ def create_project_structure(project_name: str) -> bool:
     try:
         # Define the list of files and directories to create
         list_of_files = [
+            # general files
             ".gitignore",
             ".dockerignore",
             "requirements.txt",
             "README.md",
             "template.py",
             ".github/workflows/.gitkeep",
+            # log files
             f"logs/",
             f"src/{project_name}/__init__.py",
+            # components
             f"src/{project_name}/components/__init__.py",
             f"src/{project_name}/components/data_cleaning.py",
             f"src/{project_name}/components/data_ingestion.py",
             f"src/{project_name}/components/data_validation.py",
             f"src/{project_name}/components/data_transformation.py",
             f"src/{project_name}/components/model_trainer.py",
+            # logger
             f"src/{project_name}/logger/__init__.py",
             f"src/{project_name}/logger/logger_config.py",
+            # utils
             f"src/{project_name}/utils/__init__.py",
             f"src/{project_name}/utils/common.py",
             f"src/{project_name}/utils/schema_manager.py",
             f"src/{project_name}/utils/delete_directories.py",
+            # config
             f"src/{project_name}/config/__init__.py",
             f"src/{project_name}/config/configuration.py",
+            # pipeline
             f"src/{project_name}/pipeline/__init__.py",
             f"src/{project_name}/pipeline/data_ingestion.py",
             f"src/{project_name}/pipeline/data_validation.py",
             f"src/{project_name}/pipeline/data_transformation.py",
+            f"src/{project_name}/pipeline/model_trainer.py",
+            # entity
             f"src/{project_name}/entity/__init__.py",
             f"src/{project_name}/entity/config_entity.py",
+            # constants
             f"src/{project_name}/constants/__init__.py",
             f"src/{project_name}/constants/constants.py",
+            # config, params, schema
             "config/config.yaml",
             "params.yaml",
             "schema.yaml",
-            "main.py",
-            "Dockerfile",
-            "setup.py",
+            # research
             "research/research.ipynb",
             "research/research.py",
             "research/__init__.py",
+            # other files
+            "main.py",
+            "Dockerfile",
+            "setup.py",
+            # app
             "templates/index.html",
             "app.py",
+            # clean
             "clean.py"
         ]
 
