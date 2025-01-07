@@ -9,6 +9,7 @@ def clean():
 
         # delete the folders
         delete_directories(paths)
+        print("Cleaned up the project directories")
 
     except Exception as e:
         raise e

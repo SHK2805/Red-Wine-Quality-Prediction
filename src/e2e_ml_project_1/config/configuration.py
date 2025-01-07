@@ -106,9 +106,12 @@ class ConfigurationManager:
         logger.info(f"{tag}Model parameters obtained from the params file")
 
         schema = SchemaFileManager(schema=self.schema).get_schema_as_dict()
+        # here the target column is the last column in the schema
+        # this needs to file to be in the correct order and format
+        # [-1] -> get the last element of the list
         target_key: str = list(schema.keys())[-1]
         target_column_value: str = list(schema[target_key].keys())[0]
-        logger.info(f"{tag}Target column value: {target_column_value}")
+        logger.info(f"{tag}Target column value: {target_column_value} for the target key: {target_key}")
 
         # create the data directory
         data_dir = config.data_root_dir

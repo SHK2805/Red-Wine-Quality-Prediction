@@ -13,10 +13,13 @@ def delete_directory(directory: Path) -> None:
     """
     # check if the directory exists
     if not directory.exists():
+        print(f"Directory {directory} does not exist")
         return
     shutil.rmtree(directory)
+    print(f"Directory {directory} deleted")
 
-# function that takes a list of directories check if they exist and delete the directory and its subdirectories and contents
+# function that takes a list of directory checks if they exist
+# and delete the directory and its subdirectories and contents
 def delete_directories(directories: List[Path]) -> None:
     """
     Delete a list of directories and their subdirectories and contents
@@ -25,4 +28,5 @@ def delete_directories(directories: List[Path]) -> None:
     :return: None
     """
     for directory in directories:
+        print(f"Deleting directory: {directory}")
         delete_directory(directory)

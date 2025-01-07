@@ -41,7 +41,7 @@ class ModelTrainerConfig:
     # model parameters
     # We are using ElasticNet model
     # the parameters are alpha and l1_ratio
-    # the parameters value are given in params.yaml
+    # the parameter value is given in params.yaml
     alpha: float
     l1_ratio: float
     target_column: str
