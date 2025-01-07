@@ -26,6 +26,7 @@ def create_project_structure(project_name: str) -> bool:
             f"src/{project_name}/utils/__init__.py",
             f"src/{project_name}/utils/common.py",
             f"src/{project_name}/utils/schema_manager.py",
+            f"src/{project_name}/utils/delete_directories.py",
             f"src/{project_name}/config/__init__.py",
             f"src/{project_name}/config/configuration.py",
             f"src/{project_name}/pipeline/__init__.py",
