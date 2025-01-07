@@ -2,7 +2,8 @@ import os
 from src.e2e_ml_project_1.constants.constants import *
 from src.e2e_ml_project_1.entity.config_entity import (DataIngestionConfig,
                                                        DataValidationConfig,
-                                                       DataTransformationConfig)
+                                                       DataTransformationConfig,
+                                                       ModelTrainerConfig)
 from src.e2e_ml_project_1.logger.logger_config import logger
 from src.e2e_ml_project_1.utils.common import read_yaml, create_directories
 from src.e2e_ml_project_1.utils.schema_manager import SchemaFileManager
@@ -95,6 +96,37 @@ class ConfigurationManager:
         )
 
         return data_transformation_config
+
+    def get_model_trainer_config(self) -> ModelTrainerConfig:
+        tag: str = f"{self.class_name}::get_model_training_config::"
+        config = self.config.model_trainer
+        logger.info(f"{tag}Model training configuration obtained from the config file")
+
+        params = self.params.ElasticNet
+        logger.info(f"{tag}Model parameters obtained from the params file")
+
+        schema = SchemaFileManager(schema=self.schema).get_schema_as_dict()
+        target_key: str = list(schema.keys())[-1]
+        target_column_value: str = list(schema[target_key].keys())[0]
+        logger.info(f"{tag}Target column value: {target_column_value}")
+
+        # create the data directory
+        data_dir = config.data_root_dir
+        logger.info(f"{tag}Data directory: {data_dir} obtained from the config file")
+        create_directories([data_dir])
+        logger.info(f"{tag}Data directory created: {data_dir}")
+
+        model_training_config: ModelTrainerConfig = ModelTrainerConfig(
+            data_root_dir=Path(config.data_root_dir),
+            data_train_file=Path(config.data_train_file),
+            data_test_file=Path(config.data_test_file),
+            model_name=config.model_name,
+            alpha=params.alpha,
+            l1_ratio=params.l1_ratio,
+            target_column=target_column_value
+        )
+
+        return model_training_config
 
 
 

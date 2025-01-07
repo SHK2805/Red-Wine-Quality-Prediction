@@ -16,8 +16,16 @@
 ### Workflow
 * We update the below files in that order to achieve the ML pipeline:
 1. config > config.yaml
+   1. data_ingestion
+   2. data_validation
+   3. data_transformation
+   4. model_training
 2. schema.yaml
+   1. The schema of the data i.e. the column headers and the data types
+   2. data_validation
 3. params.yaml
+   1. The parameters for the model training
+   2. model_training
 4. Update the entity
    1. In src > entity > config_entity.py
 5. Update the configuration manager 
@@ -27,6 +35,7 @@
       1. data_ingestion.py
       2. data_validation.py
       3. data_transformation.py
+      4. model_trainer.py
 7. Update the pipeline
     1. In src > pipeline
         1. data_ingestion.py
@@ -40,6 +49,7 @@
    1. Needed for Data Ingestion, Data Validation
    2. Data Ingestion: Fill this first data_ingestion
    3. Data Validation: Fill this first data_validation
+   4. Data Transformation: Fill this first data_transformation
 2. schema.yaml
    1. Not needed for Data Ingestion
    2. Needed for Data Validation
