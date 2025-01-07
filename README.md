@@ -15,13 +15,23 @@
 
 ### Workflow
 * We update the below files in that order to achieve the ML pipeline:
-1. config.yaml
+1. config > config.yaml
 2. schema.yaml
 3. params.yaml
 4. Update the entity
-5. Update the configuration manager in src config
-6. Update the components in src components
-7. Update the pipeline in src pipeline
+   1. In src > entity > config_entity.py
+5. Update the configuration manager 
+   1. In src > config > configuration.py
+6. Update the components 
+   1. In src > components 
+      1. data_ingestion.py
+      2. data_validation.py
+      3. data_transformation.py
+7. Update the pipeline
+    1. In src > pipeline
+        1. data_ingestion.py
+        2. data_validation.py
+        3. data_transformation.py 
 8. Update the main.py
 
 ### Workflow Details

@@ -15,8 +15,6 @@ class DataIngestionConfig:
     data_unzip_dir: Path
     data_source_type: str
     data_source_separator: str
-    data_source_train_test_split: float
-    data_source_random_state: int
 
 
 class ConfigurationManager:
@@ -54,9 +52,7 @@ class ConfigurationManager:
             data_local_data_file=Path(config.data_local_data_file),
             data_unzip_dir=Path(config.data_unzip_dir),
             data_source_type=config.data_source_type,
-            data_source_separator=config.data_source_separator,
-            data_source_train_test_split=config.data_source_train_test_split,
-            data_source_random_state=config.data_source_random_state
+            data_source_separator=config.data_source_separator
         )
         logger.info(f"{tag}Data ingestion configuration created")
         return data_ingestion_config

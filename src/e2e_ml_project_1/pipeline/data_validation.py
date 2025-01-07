@@ -23,8 +23,9 @@ class DataValidationTrainingPipeline:
             logger.info(f"{tag}::Running the data validation pipeline")
 
             if not data_validation.validate_all_columns():
-                logger.error(f"{tag}::Data validation failed")
-                raise Exception(f"Data validation failed")
+                message: str = f"Data validation failed"
+                logger.error(f"{tag}::{message}")
+                raise Exception(f"{message}")
 
             logger.info(f"{tag}::All data columns validated successfully")
         except Exception as e:

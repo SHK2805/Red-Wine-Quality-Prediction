@@ -1,6 +1,8 @@
 import os
 from src.e2e_ml_project_1.constants.constants import *
-from src.e2e_ml_project_1.entity.config_entity import DataIngestionConfig, DataValidationConfig
+from src.e2e_ml_project_1.entity.config_entity import (DataIngestionConfig,
+                                                       DataValidationConfig,
+                                                       DataTransformationConfig)
 from src.e2e_ml_project_1.logger.logger_config import logger
 from src.e2e_ml_project_1.utils.common import read_yaml, create_directories
 from src.e2e_ml_project_1.utils.schema_manager import SchemaFileManager
@@ -41,9 +43,7 @@ class ConfigurationManager:
             data_local_data_file=Path(config.data_local_data_file),
             data_unzip_dir=Path(config.data_unzip_dir),
             data_source_type=config.data_source_type,
-            data_source_separator=config.data_source_separator,
-            data_source_train_test_split=config.data_source_train_test_split,
-            data_source_random_state=config.data_source_random_state
+            data_source_separator=config.data_source_separator
         )
         logger.info(f"{tag}Data ingestion configuration created")
         return data_ingestion_config
@@ -72,3 +72,29 @@ class ConfigurationManager:
         )
         logger.info(f"{tag}Data validation configuration created")
         return data_validation_config
+
+    def get_data_transformation_config(self) -> DataTransformationConfig:
+        tag: str = f"{self.class_name}::get_data_transformation_config::"
+        config = self.config.data_transformation
+        logger.info(f"{tag}Data transformation configuration obtained from the config file")
+
+        # create the data directory
+        data_dir = config.data_root_dir
+        logger.info(f"{tag}Data directory: {data_dir} obtained from the config file")
+        create_directories([data_dir])
+        logger.info(f"{tag}Data directory created: {data_dir}")
+
+        data_transformation_config: DataTransformationConfig = DataTransformationConfig(
+            data_root_dir=Path(config.data_root_dir),
+            data_unzip_dir=Path(config.data_unzip_dir),
+            data_preprocessed_file=Path(config.data_preprocessed_file),
+            data_preprocessed_train_file=Path(config.data_preprocessed_train_file),
+            data_preprocessed_test_file=Path(config.data_preprocessed_test_file),
+            data_source_train_test_split=config.data_source_train_test_split,
+            data_source_random_state=config.data_source_random_state
+        )
+
+        return data_transformation_config
+
+
+

@@ -11,8 +11,6 @@ class DataIngestionConfig:
     data_unzip_dir: Path
     data_source_type: str
     data_source_separator: str
-    data_source_train_test_split: float
-    data_source_random_state: int
 
 @dataclass
 class DataValidationConfig:
@@ -21,3 +19,14 @@ class DataValidationConfig:
     data_unzip_dir: Path
     STATUS_FILE: str
     all_schema: dict
+
+@dataclass
+class DataTransformationConfig:
+    # these are the inputs to the data transformation pipeline
+    data_root_dir: Path
+    data_unzip_dir: Path
+    data_preprocessed_file: Path
+    data_preprocessed_train_file: Path
+    data_preprocessed_test_file: Path
+    data_source_train_test_split: float
+    data_source_random_state: int
