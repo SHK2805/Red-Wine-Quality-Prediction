@@ -16,7 +16,18 @@ class RunPipeline:
             logger.error(f"{tag}::Error running the data ingestion pipeline: {e}")
             raise e
 
+    def run_data_validation_pipeline(self) -> None:
+        tag: str = f"{self.class_name}::run_data_validation_pipeline::"
+        try:
+            self.data_ingestion_pipeline.data_ingestion()
+            logger.info(f"{tag}::Running the data validation pipeline")
+            self.data_ingestion_pipeline.data_validation()
+            logger.info(f"{tag}::Data validation pipeline completed")
+        except Exception as e:
+            logger.error(f"{tag}::Error running the data validation pipeline: {e}")
+            raise e
+
 if __name__ == "__main__":
     # Run the pipelines
     run_pipeline = RunPipeline()
-    run_pipeline.run_data_ingestion_pipeline()
+    run_pipeline.run_data_validation_pipeline()

@@ -46,7 +46,8 @@ def create_project_structure(project_name: str) -> bool:
             "research/research_run.py",
             "research/__init__.py",
             "templates/index.html",
-            "app.py"
+            "app.py",
+            "clean.py"
         ]
 
         for filepath in list_of_files:
