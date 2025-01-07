@@ -31,26 +31,3 @@ class DataIngestionTrainingPipeline:
         except Exception as e:
             logger.error(f"{tag}::Error running the data ingestion pipeline: {e}")
             raise e
-
-    def data_validation(self) -> None:
-        tag: str = f"{self.class_name}::data_validation::"
-        try:
-            config = ConfigurationManager()
-            logger.info(f"{tag}::Configuration Manager object created")
-
-            data_validation_config = config.get_data_validation_config()
-            logger.info(f"{tag}::Data validation configuration obtained")
-
-            data_validation = DataValidation(config=data_validation_config)
-            logger.info(f"{tag}::Data validation object created")
-
-            logger.info(f"{tag}::Running the data validation pipeline")
-
-            if not data_validation.validate_all_columns():
-                logger.error(f"{tag}::Data validation failed")
-                raise Exception(f"Data validation failed")
-
-            logger.info(f"{tag}::All data columns validated successfully")
-        except Exception as e:
-            logger.error(f"{tag}::Error running the data validation pipeline: {e}")
-            raise e

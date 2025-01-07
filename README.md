@@ -40,9 +40,9 @@
 4. Update the entity
    1. Needed for Data Ingestion, Data Validation
    2. Data Ingestion: Fill this second config_entity.py
-      1. Add the key value pairs for the data schema the name of the column and the type of the column should match the ones in config.yaml
+      1. Add the key value pairs for the data schema the name of the column, and the type of the column should match the ones in config.yaml
    3. Data Validation: Fill this third config_entity.py
-      1. Add the key value pairs for the data schema the name of the column and the type of the column should match the ones in config.yaml
+      1. Add the key value pairs for the data schema the name of the column, and the type of the column should match the ones in config.yaml
 5. Update the configuration manager in src config
    1. Needed for Data Ingestion
    2. Data Ingestion: Fill this third configuration.py get_data_ingestion_config
@@ -50,9 +50,12 @@
 6. Update the components in src components
    1. Needed for Data Ingestion
    2. Data Ingestion: Fill this forth data_ingestion.py
+   3. Data Validation: Fill this fifth data_validation.py
 7. Update the pipeline in src pipeline
    1. Needed for Data Ingestion, Data Validation
    2. Data Ingestion: Fill this fifth data_ingestion.py
+   3. Data Validation: Fill this sixth data_validation.py
 8. Update the main.py
     1. Needed for Data Ingestion, Data Validation
     2. Data Ingestion: Fill this sixth main.py
+    3. Data Validation: Fill this seventh main.py

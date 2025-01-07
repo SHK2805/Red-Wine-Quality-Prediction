@@ -30,6 +30,7 @@ def create_project_structure(project_name: str) -> bool:
             f"src/{project_name}/config/configuration.py",
             f"src/{project_name}/pipeline/__init__.py",
             f"src/{project_name}/pipeline/data_ingestion.py",
+            f"src/{project_name}/pipeline/data_validation.py",
             f"src/{project_name}/entity/__init__.py",
             f"src/{project_name}/entity/config_entity.py",
             f"src/{project_name}/constants/__init__.py",
