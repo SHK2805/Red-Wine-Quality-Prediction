@@ -45,6 +45,7 @@ def create_project_structure(project_name: str) -> bool:
             f"src/{project_name}/pipeline/data_transformation.py",
             f"src/{project_name}/pipeline/model_trainer.py",
             f"src/{project_name}/pipeline/model_evaluation.py",
+            f"src/{project_name}/pipeline/prediction.py",
             # entity
             f"src/{project_name}/entity/__init__.py",
             f"src/{project_name}/entity/config_entity.py",
@@ -65,6 +66,7 @@ def create_project_structure(project_name: str) -> bool:
             "setup.py",
             # app
             "templates/index.html",
+            "templates/results.html",
             "app.py",
             # clean
             "clean.py"
