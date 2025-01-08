@@ -1,8 +1,8 @@
 from pathlib import Path
 
-from src.e2e_ml_project_1.constants.constants import SCHEMA_FILE_PATH
-from src.e2e_ml_project_1.utils.common import read_yaml
-from src.e2e_ml_project_1.utils.schema_manager import SchemaFileManager
+from src.red_wine_quality_prediction.constants.constants import SCHEMA_FILE_PATH
+from src.red_wine_quality_prediction.utils.common import read_yaml
+from src.red_wine_quality_prediction.utils.schema_manager import SchemaFileManager
 
 schema_file_path = Path("../schema.yaml")
 if not schema_file_path.exists():

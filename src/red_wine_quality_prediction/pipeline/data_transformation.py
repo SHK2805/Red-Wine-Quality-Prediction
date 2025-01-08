@@ -1,9 +1,9 @@
 from pathlib import Path
 
-from src.e2e_ml_project_1.components.data_transformation import DataTransformation
-from src.e2e_ml_project_1.config.configuration import ConfigurationManager
-from src.e2e_ml_project_1.logger.logger_config import logger
-from src.e2e_ml_project_1.utils.common import check_file_exists
+from src.red_wine_quality_prediction.components.data_transformation import DataTransformation
+from src.red_wine_quality_prediction.config.configuration import ConfigurationManager
+from src.red_wine_quality_prediction.logger.logger_config import logger
+from src.red_wine_quality_prediction.utils.common import check_file_exists
 
 STAGE_NAME: str = "Data Transformation Pipeline"
 class DataTransformationTrainingPipeline:

@@ -9,7 +9,7 @@ from box import ConfigBox
 from box.exceptions import BoxValueError
 from ensure import ensure_annotations
 
-from src.e2e_ml_project_1.logger.logger_config import logger
+from src.red_wine_quality_prediction.logger.logger_config import logger
 
 
 @ensure_annotations

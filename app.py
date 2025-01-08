@@ -1,5 +1,5 @@
 # flask application to use the prediction model
-from src.e2e_ml_project_1.pipeline.prediction import PredictionPipeline
+from src.red_wine_quality_prediction.pipeline.prediction import PredictionPipeline
 from flask import Flask, request, jsonify, render_template
 import os
 import numpy as np

@@ -2,9 +2,9 @@ import os.path
 from pathlib import Path
 
 import pandas as pd
-from src.e2e_ml_project_1.entity.config_entity import DataValidationConfig
-from src.e2e_ml_project_1.logger.logger_config import logger
-from src.e2e_ml_project_1.utils.common import check_file_exists, write_data_to_file
+from src.red_wine_quality_prediction.entity.config_entity import DataValidationConfig
+from src.red_wine_quality_prediction.logger.logger_config import logger
+from src.red_wine_quality_prediction.utils.common import check_file_exists, write_data_to_file
 
 
 class DataValidation:

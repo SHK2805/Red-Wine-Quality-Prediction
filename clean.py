@@ -1,5 +1,5 @@
 from pathlib import Path
-from src.e2e_ml_project_1.utils.delete_directories import delete_directories
+from src.red_wine_quality_prediction.utils.delete_directories import delete_directories
 
 
 def clean(clean_artifacts: bool = False):
@@ -22,4 +22,4 @@ if __name__ == "__main__":
     # set to True to clean up all artifacts, logs and mlflow folders
     # if deleting the mlflow folders then make sure mlflow server is not running
     # make sure the Flask app is not running
-    clean(True)
+    clean() # set to True to clean up all artifacts, logs and mlflow folders

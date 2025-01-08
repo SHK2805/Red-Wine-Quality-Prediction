@@ -104,7 +104,7 @@ if __name__ == "__main__":
     # Define the project name
     # This will be the name of the project directory
     # The name cannot have spaces or special characters except for underscores
-    ml_project_name = "e2e_ml_project_1"
+    ml_project_name = "red_wine_quality_prediction"
     # Create the project structure
     create_project_structure(ml_project_name)
     logging.info(f"Project structure created for {ml_project_name}")

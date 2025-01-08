@@ -1,6 +1,6 @@
-from src.e2e_ml_project_1.config.configuration import ConfigurationManager
-from src.e2e_ml_project_1.logger.logger_config import logger
-from src.e2e_ml_project_1.components.model_evaluation import ModelEvaluation
+from src.red_wine_quality_prediction.config.configuration import ConfigurationManager
+from src.red_wine_quality_prediction.logger.logger_config import logger
+from src.red_wine_quality_prediction.components.model_evaluation import ModelEvaluation
 
 STAGE_NAME: str = "Model Evaluation Pipeline"
 class ModelEvaluationTrainingPipeline:

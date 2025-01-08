@@ -61,10 +61,19 @@ python app.py
 * The project is a template for a Machine Learning project.
 * The implementation is done in the **components** package
 * The data ingestion pipeline downloads the zipfile and extracts the csv
-* The data validation pipeline validates the data features using the schema.yaml file
-* The data transformation pipeline performs the data cleaning and feature engineering. Does the train test split and saves the train and test data into csv files
+  * Data file extracted to: artifacts\data_ingestion
+* The data validation pipeline validates the data features using the schema.yaml file 
+  * Writs the status to artifacts/data_validation/status.txt
+* The data transformation pipeline performs the data cleaning and feature engineering. 
+  * Performs the train test split and saves the train and test data into csv files
+  * The train and test data is saved to 
+    * artifacts\data_transformation\train.csv
+    * artifacts\data_transformation\test.csv
 * The model training pipeline gets the train and test data from csv, trains the model using the train data and saves the model in the artifacts folder
+  * Data read from: artifacts\data_transformation\train.csv and artifacts\data_transformation\test.csv
+  * the model is saved to: artifacts\model_trainer\model.joblib
 * The model evaluation pipeline evaluates the model using the test data it gets from the csv and saves the metrics in the artifacts folder ad mlflow
+  *  Metrics data saved to the JSON file: artifacts\model_evaluation\metrics.json
 
 ### ML Pipeline
 * The ML pipeline is a sequence of steps that are executed in order to build, train, evaluate, and deploy a machine learning model.

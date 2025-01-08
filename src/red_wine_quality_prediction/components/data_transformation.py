@@ -3,9 +3,9 @@ import os
 import pandas as pd
 from sklearn.model_selection import train_test_split
 
-from src.e2e_ml_project_1.components.data_cleaning import DataCleaning
-from src.e2e_ml_project_1.entity.config_entity import DataTransformationConfig
-from src.e2e_ml_project_1.logger.logger_config import logger
+from src.red_wine_quality_prediction.components.data_cleaning import DataCleaning
+from src.red_wine_quality_prediction.entity.config_entity import DataTransformationConfig
+from src.red_wine_quality_prediction.logger.logger_config import logger
 
 
 # DataTransformation class

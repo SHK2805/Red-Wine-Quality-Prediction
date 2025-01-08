@@ -1,7 +1,7 @@
-from src.e2e_ml_project_1.components.data_ingestion import DataIngestion
-from src.e2e_ml_project_1.components.data_validation import DataValidation
-from src.e2e_ml_project_1.config.configuration import ConfigurationManager
-from src.e2e_ml_project_1.logger.logger_config import logger
+from src.red_wine_quality_prediction.components.data_ingestion import DataIngestion
+from src.red_wine_quality_prediction.components.data_validation import DataValidation
+from src.red_wine_quality_prediction.config.configuration import ConfigurationManager
+from src.red_wine_quality_prediction.logger.logger_config import logger
 
 STAGE_NAME: str = "Data Ingestion Pipeline"
 class DataIngestionTrainingPipeline:

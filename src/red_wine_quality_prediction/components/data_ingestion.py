@@ -1,9 +1,9 @@
 import os.path
 import urllib.request as request
 import zipfile
-from src.e2e_ml_project_1.entity.config_entity import DataIngestionConfig
-from src.e2e_ml_project_1.logger.logger_config import logger
-from src.e2e_ml_project_1.utils.common import create_directories
+from src.red_wine_quality_prediction.entity.config_entity import DataIngestionConfig
+from src.red_wine_quality_prediction.logger.logger_config import logger
+from src.red_wine_quality_prediction.utils.common import create_directories
 
 
 # Data Ingestion

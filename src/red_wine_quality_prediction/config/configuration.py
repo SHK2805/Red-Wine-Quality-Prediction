@@ -1,12 +1,12 @@
 import os
-from src.e2e_ml_project_1.constants.constants import *
-from src.e2e_ml_project_1.entity.config_entity import (DataIngestionConfig,
+from src.red_wine_quality_prediction.constants.constants import *
+from src.red_wine_quality_prediction.entity.config_entity import (DataIngestionConfig,
                                                        DataValidationConfig,
                                                        DataTransformationConfig,
                                                        ModelTrainerConfig, ModelEvaluationConfig)
-from src.e2e_ml_project_1.logger.logger_config import logger
-from src.e2e_ml_project_1.utils.common import read_yaml, create_directories, save_json
-from src.e2e_ml_project_1.utils.schema_manager import SchemaFileManager
+from src.red_wine_quality_prediction.logger.logger_config import logger
+from src.red_wine_quality_prediction.utils.common import read_yaml, create_directories, save_json
+from src.red_wine_quality_prediction.utils.schema_manager import SchemaFileManager
 
 
 class ConfigurationManager:

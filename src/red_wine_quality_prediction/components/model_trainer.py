@@ -2,8 +2,8 @@ import os
 import joblib
 import pandas as pd
 from sklearn.linear_model import ElasticNet
-from src.e2e_ml_project_1.entity.config_entity import ModelTrainerConfig
-from src.e2e_ml_project_1.logger.logger_config import logger
+from src.red_wine_quality_prediction.entity.config_entity import ModelTrainerConfig
+from src.red_wine_quality_prediction.logger.logger_config import logger
 
 
 class ModelTrainer:

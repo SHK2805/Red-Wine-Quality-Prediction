@@ -1,10 +1,10 @@
 from clean import clean
-from src.e2e_ml_project_1.logger.logger_config import logger
-from src.e2e_ml_project_1.pipeline.data_ingestion import DataIngestionTrainingPipeline
-from src.e2e_ml_project_1.pipeline.data_transformation import DataTransformationTrainingPipeline
-from src.e2e_ml_project_1.pipeline.data_validation import DataValidationTrainingPipeline
-from src.e2e_ml_project_1.pipeline.model_evaluation import ModelEvaluationTrainingPipeline
-from src.e2e_ml_project_1.pipeline.model_trainer import ModelTrainerTrainingPipeline
+from src.red_wine_quality_prediction.logger.logger_config import logger
+from src.red_wine_quality_prediction.pipeline.data_ingestion import DataIngestionTrainingPipeline
+from src.red_wine_quality_prediction.pipeline.data_transformation import DataTransformationTrainingPipeline
+from src.red_wine_quality_prediction.pipeline.data_validation import DataValidationTrainingPipeline
+from src.red_wine_quality_prediction.pipeline.model_evaluation import ModelEvaluationTrainingPipeline
+from src.red_wine_quality_prediction.pipeline.model_trainer import ModelTrainerTrainingPipeline
 
 
 class RunPipeline:

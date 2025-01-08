@@ -4,9 +4,9 @@ from typing import Any
 from box import ConfigBox
 from box.config_box import ConfigBox
 
-from src.e2e_ml_project_1.constants.constants import SCHEMA_FILE_PATH
-from src.e2e_ml_project_1.logger.logger_config import logger
-from src.e2e_ml_project_1.utils.common import check_file_exists, read_yaml
+from src.red_wine_quality_prediction.constants.constants import SCHEMA_FILE_PATH
+from src.red_wine_quality_prediction.logger.logger_config import logger
+from src.red_wine_quality_prediction.utils.common import check_file_exists, read_yaml
 
 
 class SchemaFileManager:

@@ -11,9 +11,9 @@ from sklearn.metrics import (classification_report,
                              mean_absolute_error,
                              r2_score)
 
-from src.e2e_ml_project_1.entity.config_entity import ModelEvaluationConfig
-from src.e2e_ml_project_1.logger.logger_config import logger
-from src.e2e_ml_project_1.utils.common import save_json
+from src.red_wine_quality_prediction.entity.config_entity import ModelEvaluationConfig
+from src.red_wine_quality_prediction.logger.logger_config import logger
+from src.red_wine_quality_prediction.utils.common import save_json
 
 
 class ModelEvaluation:
