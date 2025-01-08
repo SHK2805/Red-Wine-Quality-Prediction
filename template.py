@@ -10,11 +10,12 @@ def create_project_structure(project_name: str) -> bool:
         # Define the list of files and directories to create
         list_of_files = [
             # general files
+            "template.py",
             ".gitignore",
             ".dockerignore",
             "requirements.txt",
             "README.md",
-            "template.py",
+            "data_description.md",
             ".github/workflows/.gitkeep",
             # log files
             f"logs/",

@@ -3,7 +3,7 @@ artifacts_root: 'artifacts'
 
 data_ingestion:
   data_root_dir: 'artifacts/data_ingestion'
-  data_source: 'https://github.com/krishnaik06/datasets/raw/refs/heads/main/winequality-data.zip'
+  data_source: 'https://github.com/SHK2805/datasets/raw/refs/heads/main/winequality/winequality-data.zip'
   data_local_data_file: 'artifacts/data_ingestion/data.zip'
   data_unzip_dir: 'artifacts/data_ingestion/'
   data_source_type: 'csv'

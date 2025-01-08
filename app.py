@@ -29,6 +29,9 @@ def index():
     if request.method == 'POST':
         try:
             #  reading the inputs given by the user
+            # number of input features should be equal to the number of input features in the model
+            # here there are 11 input features
+            # get the data from the form
             fixed_acidity = float(request.form['fixed_acidity'])
             volatile_acidity = float(request.form['volatile_acidity'])
             citric_acid = float(request.form['citric_acid'])
@@ -41,8 +44,11 @@ def index():
             sulphates = float(request.form['sulphates'])
             alcohol = float(request.form['alcohol'])
 
+            # put data in a list
             data = [fixed_acidity, volatile_acidity, citric_acid, residual_sugar, chlorides, free_sulfur_dioxide,
                     total_sulfur_dioxide, density, pH, sulphates, alcohol]
+            # reshaping the data to match the model input
+            # because we have 11 input features so we need to reshape the data to 1,11
             data = np.array(data).reshape(1, 11)
 
             obj = PredictionPipeline()

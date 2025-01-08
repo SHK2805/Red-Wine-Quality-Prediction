@@ -1,5 +1,18 @@
-# End to end ML project
-* This is a template for an end to end ML project.
+# Machine Learning project
+* This is a template for a Machine Learning project.
+
+### Dataset
+* The dataset description is given in the **data_description.md** file
+
+### Technologies
+* The project is built using the following technologies:
+  * Python
+  * Flask
+  * MLFlow
+  * ElasticNet
+  * Pandas
+  * Numpy
+  * Scikit-learn
 
 ### Steps
 #### MLFlow
@@ -13,7 +26,7 @@
 * Open the terminal and run the following command
 ```bash
 # mlflow server will be running on localhost: 127.0.0.1 and on port: 8080
-mlflow server --host 0.0.0.0 --port 8080
+mlflow server --host 127.0.0.1 --port 8080
 ```
 * Access the mlflow server at http://127.0.0.1:8080/ 
 * Run the MLFlow and Flask in two different terminals
@@ -41,6 +54,18 @@ python app.py
 * Go to the home page to give input values for the model at http://127.0.0.1:5000
 * Click on the **predict** button to get the prediction. This will navigate to the result page http://127.0.0.1:5000/result
 
+#### Clean
+* To delete the artifacts, logs and mlflow folders run the code in **clean.py**
+
+### Explanation
+* The project is a template for a Machine Learning project.
+* The implementation is done in the **components** package
+* The data ingestion pipeline downloads the zipfile and extracts the csv
+* The data validation pipeline validates the data features using the schema.yaml file
+* The data transformation pipeline performs the data cleaning and feature engineering. Does the train test split and saves the train and test data into csv files
+* The model training pipeline gets the train and test data from csv, trains the model using the train data and saves the model in the artifacts folder
+* The model evaluation pipeline evaluates the model using the test data it gets from the csv and saves the metrics in the artifacts folder ad mlflow
+
 ### ML Pipeline
 * The ML pipeline is a sequence of steps that are executed in order to build, train, evaluate, and deploy a machine learning model.
 * Below are the steps in the ML pipeline:
@@ -48,9 +73,7 @@ python app.py
 2. Data Ingestion
 3. Data Transformation
 4. Model Training
-5. Model Evaluation
-   1. MLFlow
-   2. DagsHub
+5. Model Evaluation (using MLFlow)
 6. Model Deployment
 7. Model Monitoring
 8. Model Retraining

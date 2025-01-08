@@ -19,4 +19,7 @@ def clean(clean_artifacts: bool = False):
         raise e
 
 if __name__ == "__main__":
-    clean()  # set to True to clean up all artifacts
+    # set to True to clean up all artifacts, logs and mlflow folders
+    # if deleting the mlflow folders then make sure mlflow server is not running
+    # make sure the Flask app is not running
+    clean(True)
