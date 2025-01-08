@@ -3,9 +3,9 @@ from src.e2e_ml_project_1.constants.constants import *
 from src.e2e_ml_project_1.entity.config_entity import (DataIngestionConfig,
                                                        DataValidationConfig,
                                                        DataTransformationConfig,
-                                                       ModelTrainerConfig)
+                                                       ModelTrainerConfig, ModelEvaluationConfig)
 from src.e2e_ml_project_1.logger.logger_config import logger
-from src.e2e_ml_project_1.utils.common import read_yaml, create_directories
+from src.e2e_ml_project_1.utils.common import read_yaml, create_directories, save_json
 from src.e2e_ml_project_1.utils.schema_manager import SchemaFileManager
 
 
@@ -25,6 +25,17 @@ class ConfigurationManager:
         logger.info(f"Artifacts directory: {self.artifacts_dir}")
         create_directories([os.path.join(self.artifacts_dir)])
 
+    def get_elasticnet_params(self):
+        return self.params.ElasticNet
+
+    def get_target_column(self):
+        schema = SchemaFileManager(schema=self.schema).get_schema_as_dict()
+        # here the target column is the last column in the schema
+        # this needs to file to be in the correct order and format
+        # [-1] -> get the last element of the list
+        target_key: str = list(schema.keys())[-1]
+        target_column_value: str = list(schema[target_key].keys())[0]
+        return target_key, target_column_value
 
     def get_data_ingestion_config(self) -> DataIngestionConfig:
         tag: str = f"{self.class_name}::get_data_ingestion_config::"
@@ -102,15 +113,10 @@ class ConfigurationManager:
         config = self.config.model_trainer
         logger.info(f"{tag}Model training configuration obtained from the config file")
 
-        params = self.params.ElasticNet
+        params = self.get_elasticnet_params()
         logger.info(f"{tag}Model parameters obtained from the params file")
 
-        schema = SchemaFileManager(schema=self.schema).get_schema_as_dict()
-        # here the target column is the last column in the schema
-        # this needs to file to be in the correct order and format
-        # [-1] -> get the last element of the list
-        target_key: str = list(schema.keys())[-1]
-        target_column_value: str = list(schema[target_key].keys())[0]
+        target_key, target_column_value = self.get_target_column()
         logger.info(f"{tag}Target column value: {target_column_value} for the target key: {target_key}")
 
         # create the data directory
@@ -130,6 +136,38 @@ class ConfigurationManager:
         )
 
         return model_training_config
+
+    def get_model_evaluation_config(self) -> ModelEvaluationConfig:
+        tag: str = f"{self.class_name}::get_model_evaluation_config::"
+        config = self.config.model_evaluation
+        logger.info(f"{tag}Model evaluation configuration obtained from the config file")
+
+        params = self.get_elasticnet_params()
+        logger.info(f"{tag}Model parameters obtained from the params file: {params}")
+
+        target_key, target_column_value = self.get_target_column()
+        logger.info(f"{tag}Target column value: {target_column_value} for the target key: {target_key}")
+
+        # create the data directory
+        data_dir = config.data_root_dir
+        logger.info(f"{tag}Data directory: {data_dir} obtained from the config file")
+        create_directories([data_dir])
+        logger.info(f"{tag}Data directory created: {data_dir}")
+
+        model_evaluation_config: ModelEvaluationConfig = ModelEvaluationConfig(
+            data_root_dir=Path(config.data_root_dir),
+            data_test_file=Path(config.data_test_file),
+            model_path=Path(config.model_path),
+            metrics_file_name=Path(config.metrics_file_name),
+            all_params=params,
+            target_column=target_column_value,
+            mlflow_uri=config.mlflow_uri,
+            problem_type=config.problem_type
+        )
+
+        return model_evaluation_config
+
+
 
 
 

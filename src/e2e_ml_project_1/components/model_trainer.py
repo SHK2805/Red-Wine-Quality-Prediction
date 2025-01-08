@@ -37,7 +37,7 @@ class ModelTrainer:
                         f"random state: {random_state}")
 
             # Save the model
-            model_path = os.path.join(self.config.data_root_dir, f"{self.config.model_name}.joblib")
+            model_path = os.path.join(self.config.data_root_dir, f"{self.config.model_name}")
             logger.info(f"{tag}Saving the model to: {model_path}")
             joblib.dump(model, model_path)
             logger.info(f"{tag}Model saved to: {model_path}")

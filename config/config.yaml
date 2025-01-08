@@ -10,22 +10,44 @@ data_ingestion:
   data_source_separator: ','
 
 data_validation:
+  # paths
   data_root_dir: 'artifacts/data_validation'
+  # inputs
   data_unzip_dir: 'artifacts/data_ingestion/winequality-red.csv'
+  # outputs
   STATUS_FILE: 'artifacts/data_validation/status.txt'
 
 data_transformation:
+  # paths
   data_root_dir: 'artifacts/data_transformation'
+  # inputs
   data_unzip_dir: 'artifacts/data_ingestion/winequality-red.csv'
+  # outputs
   data_preprocessed_file: 'artifacts/data_transformation/data.csv'
   data_preprocessed_train_file: 'artifacts/data_transformation/train.csv'
   data_preprocessed_test_file: 'artifacts/data_transformation/test.csv'
+  # parameters
   data_source_train_test_split: 0.2
   data_source_random_state: 42
 
 model_trainer:
+  # paths
   data_root_dir: 'artifacts/model_trainer'
+  # inputs
   data_train_file: 'artifacts/data_transformation/train.csv'
   data_test_file: 'artifacts/data_transformation/test.csv'
-  model_name: 'model'
+  # outputs
+  model_name: 'model.joblib'
+
+model_evaluation:
+    # paths
+    data_root_dir: 'artifacts/model_evaluation'
+    # inputs
+    data_test_file: 'artifacts/data_transformation/test.csv'
+    model_path: 'artifacts/model_trainer/model.joblib'
+    # outputs
+    metrics_file_name: 'artifacts/model_evaluation/metrics.json'
+    # mlflow
+    mlflow_uri: 'http://127.0.0.1:8080'
+    problem_type: 'regression'
 

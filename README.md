@@ -38,10 +38,13 @@
       2. data_validation.py
       3. data_transformation.py
       4. model_trainer.py
+      5. model_evaluation.py
 7. Update the pipeline
     1. In src > pipeline
         1. data_ingestion.py
         2. data_validation.py
         3. data_transformation.py 
+        4. model_trainer.py
+        5. model_evaluation.py
 8. Update the main.py
     1. In main.py

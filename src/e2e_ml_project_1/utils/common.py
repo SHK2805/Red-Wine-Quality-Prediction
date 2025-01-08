@@ -57,7 +57,6 @@ def create_directories(dirs: list, verbose=True) -> None:
                 logger.info(f"Directory: {my_dir} already exists")
     logger.info(f"Directories have been created")
 
-@ensure_annotations
 def save_json(file_path: Path, data: dict) -> None:
     """
     Save the data to the JSON file

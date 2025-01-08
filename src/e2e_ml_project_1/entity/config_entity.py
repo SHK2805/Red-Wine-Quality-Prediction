@@ -45,3 +45,15 @@ class ModelTrainerConfig:
     alpha: float
     l1_ratio: float
     target_column: str
+
+@dataclass
+class ModelEvaluationConfig:
+    # these are the inputs to the model evaluation pipeline
+    data_root_dir: Path
+    data_test_file: Path
+    model_path: Path
+    metrics_file_name: Path
+    all_params: dict
+    target_column: str
+    mlflow_uri: str
+    problem_type: str

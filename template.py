@@ -26,6 +26,7 @@ def create_project_structure(project_name: str) -> bool:
             f"src/{project_name}/components/data_validation.py",
             f"src/{project_name}/components/data_transformation.py",
             f"src/{project_name}/components/model_trainer.py",
+            f"src/{project_name}/components/model_evaluation.py",
             # logger
             f"src/{project_name}/logger/__init__.py",
             f"src/{project_name}/logger/logger_config.py",
@@ -43,6 +44,7 @@ def create_project_structure(project_name: str) -> bool:
             f"src/{project_name}/pipeline/data_validation.py",
             f"src/{project_name}/pipeline/data_transformation.py",
             f"src/{project_name}/pipeline/model_trainer.py",
+            f"src/{project_name}/pipeline/model_evaluation.py",
             # entity
             f"src/{project_name}/entity/__init__.py",
             f"src/{project_name}/entity/config_entity.py",
